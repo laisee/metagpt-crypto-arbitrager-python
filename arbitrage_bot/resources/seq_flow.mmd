@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant M as Main
+    participant T as Trader
+    participant B as BinanceAPI
+    participant F as BitfinexAPI
+    participant N as Notifier
+    M->>T: start_bot()
+    loop every x seconds
+        T->>B: get_price()
+        T->>F: get_price()
+        T->>T: calculate_price_difference()
+        alt price difference > threshold
+            T->>B: execute_trade(amount)
+            T->>F: execute_trade(amount)
+            T->>N: send_notification("Trade executed")
+        end
+    end

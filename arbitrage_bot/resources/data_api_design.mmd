@@ -1,0 +1,23 @@
+classDiagram
+    class Main{
+        +void start_bot()
+    }
+    class BinanceAPI{
+        +float get_price()
+        +void execute_trade(float amount)
+    }
+    class BitfinexAPI{
+        +float get_price()
+        +void execute_trade(float amount)
+    }
+    class Trader{
+        +void monitor_prices()
+        +void execute_arbitrage_trade()
+    }
+    class Notifier{
+        +void send_notification(string message)
+    }
+    Main -- Trader : uses
+    Trader -- BinanceAPI : uses
+    Trader -- BitfinexAPI : uses
+    Trader -- Notifier : uses

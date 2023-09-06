@@ -1,0 +1,5 @@
+requests==2.25.1
+ccxt==1.50.44
+apscheduler==3.7.0
+logging==0.5.1.2
+python-dotenv==0.17.1
